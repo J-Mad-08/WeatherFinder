@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- add favicon to the weather app with font-awesome-->
+    <link
+      rel="shortcut icon"
+      href="imgs/poo-storm-solid.svg"
+      type="image/x-icon"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/3200066c93.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- adding bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!--adding axios for weather API -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- adding google fonts, Titillium and Roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,400;0,600;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Titillium+Web:ital,wght@0,200;0,400;0,600;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- linking css -->
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather W2</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>
+        <b><strong>Weather</strong></b>
+        Simplified
+      </h1>
+      <!-- current -->
+      <div class="row">
+        <section class="current">
+          <div class="col">
+            <div class="city" id="city"></div>
+            <br />
+            <legend class="current-temp" id="curTemp">
+              <span id="emoji"> ☀️</span><span id="current-temp"></span>
+              <a href="#" id="converter"
+                ><small id="celsius">ºC</small>|<small id="fahrenheit"
+                  >ºF</small
+                ></a
+              >
+            </legend>
+            <br />
+            <div class="date" id="date"></div>
+            <br />
+            <!-- slogan -->
+            <p class="slogan"></p>
+            <br />
+            <p class="slogan" id="description"></p>
+            <br />
+            <br />
+            <div class="col">
+              <div class="todays-additional-weather">
+                High Temp/<em><bold>Low Temp</bold></em
+                >: <strong id="temp-max"></strong
+                ><strong id="temp-min"> </strong>
+                <br />
+                Wind:
+                <strong id="wind"></strong>
+                <br />
+                Humidity:
+                <strong id="humidity"></strong>
+              </div>
+            </div>
+            <section class="user-input">
+              <nav class="navbar">
+                <form id="form-inline">
+                  <input
+                    class="form-control mr-sm-2"
+                    type="search"
+                    placeholder="Search other cities"
+                    aria-label="Search"
+                    id="Searching"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark"
+                    id="dark-button"
+                  >
+                    Search
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark"
+                    id="current-button"
+                  >
+                    Current
+                  </button>
+                </form>
+              </nav>
+            </section>
+          </div>
+        </section>
+        <!-- forecast -->
+        <div class="col-5">
+          <!-- <img
+            src="imgs/arrow-up.svg"
+            alt="svg of an up arrow"
+            class="arrow-up"
+            width="50px"
+          /> -->
+          <h3>5 Day Forecast</h3>
+          <section class="forecast">
+            <div class="row">
+              <div class="col-12">
+                <h4>☀️ Sunday</h4>
+                <div class="row">
+                  <div class="col">
+                    <section class="temp">
+                      <a href="" class="degrees">20ºC</a>
+                      <a href="" class="degrees">14ºC</a>
+                    </section>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <h4>🌤 Monday</h4>
+                <div class="row">
+                  <div class="col">
+                    <section class="temp">
+                      <bold>
+                        <a href="" class="degrees">21ºC</a>
+                      </bold>
+                      <a href="" class="degrees">14ºC</a>
+                    </section>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <h4>🌥 Tuesday</h4>
+                <div class="row">
+                  <div class="col">
+                    <section class="temp">
+                      <bold>
+                        <a href="" class="degrees">22ºC</a>
+                      </bold>
+                      <a href="" class="degrees">15ºC</a>
+                    </section>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <h4>🌥 Wednesday</h4>
+                <div class="row">
+                  <div class="col">
+                    <section class="temp">
+                      <bold>
+                        <a href="" class="degrees">24ºC</a>
+                      </bold>
+                      <a href="" class="degrees">13ºC</a>
+                    </section>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <h4>🌧 Thursday</h4>
+                <div class="row">
+                  <div class="col">
+                    <section class="temp">
+                      <bold>
+                        <a href="" class="degrees">19ºC</a>
+                      </bold>
+                      <a href="" class="degrees">8ºC</a>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- <img
+            src="imgs/arrow-down.svg"
+            alt="svg of an down arrow"
+            class="arrow-down"
+            width="50px"
+          /> -->
+        </div>
+      </div>
+    </div>
+    <footer>Designed by Jireh Maddox</footer>
+    <script src="src/script.js"></script>
+  </body>
+</html>

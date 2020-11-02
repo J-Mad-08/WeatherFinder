@@ -5,7 +5,7 @@ font-family: 'Titillium Web', sans-serif; */
 html {
   box-sizing: border-box;
   background-image: url("https://images.unsplash.com/photo-1569248008810-cab0463f82e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-  object-fit: cover;
+  object-fit: fill;
 }
 
 body {

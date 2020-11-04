@@ -37,17 +37,17 @@ defaultCity("Brooklyn");
 
 // Weather info grabbed from API call
 function showTemp(response) {
-  //console.log(response);
+  // icon
+  console.log(response.data.weather[0].icon);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   //City
   document.querySelector("#city").innerHTML = response.data.name;
   //   Temp
   let temp = Math.round(response.data.main.temp);
-  if (temp < 15) {
-    let emoji = document.querySelector("#emoji");
-    emoji.innerHTML = "🥶 ";
-  } else {
-    emoji.innerHTML = "☀️";
-  }
   document.querySelector("#current-temp").innerHTML = temp;
   //   Conversion: Fahrenheit
   let convertToF = (event) => {

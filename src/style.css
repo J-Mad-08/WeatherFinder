@@ -78,6 +78,10 @@ legend {
   font-size: 20px;
 }
 
+#celsius .active {
+  color: black;
+}
+
 .degrees {
   text-decoration: none;
   color: #fbff3c;

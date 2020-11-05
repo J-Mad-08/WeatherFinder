@@ -32,13 +32,10 @@ function defaultCity(city) {
   axios.get(apiUrl).then(showTemp);
 }
 
-// Invocation
-defaultCity("Brooklyn");
-
 // Weather info grabbed from API call
 function showTemp(response) {
   // icon
-  console.log(response.data.weather[0].icon);
+  // console.log(response.data.weather[0].icon);
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
@@ -49,15 +46,10 @@ function showTemp(response) {
   //   Temp
   let temp = Math.round(response.data.main.temp);
   document.querySelector("#current-temp").innerHTML = temp;
-  //   Conversion: Fahrenheit
-  let convertToF = (event) => {
-    event.preventDefault();
-    document.querySelector("#current-temp").innerHTML = Math.round(
-      temp * (9 / 5) + 32
-    );
-  };
-  let conversionToF = document.querySelector("#fahrenheit");
-  conversionToF.addEventListener("click", convertToF);
+
+  // Celsius Temp
+  celsiusTemp = response.data.main.temp;
+
   //   Slogan
   let humanFeel = Math.round(response.data.main["feels_like"]);
   let sloganChanged = document.querySelector(".slogan");
@@ -118,3 +110,30 @@ function showTempCurLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+let celsiusTemp = null;
+
+//   Conversion: Fahrenheit
+function convertToF(event) {
+  event.preventDefault();
+  console.log(event);
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    celsiusTemp * (9 / 5) + 32
+  );
+}
+let conversionToF = document.querySelector("#fahrenheit");
+conversionToF.addEventListener("click", convertToF);
+
+let convertToC = (event) => {
+  event.preventDefault();
+  console.log(event);
+  let temp = document.querySelector("#current-temp");
+  temp.innerHTML = Math.round(celsiusTemp);
+};
+
+// Celsius conversion
+let conversionToC = document.querySelector("#celsius");
+conversionToC.addEventListener("click", convertToC);
+
+// Invocation
+defaultCity("Brooklyn");

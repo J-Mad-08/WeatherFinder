@@ -78,8 +78,15 @@ legend {
   font-size: 20px;
 }
 
-#celsius .active {
+.active {
   color: black;
+  /* text-decoration: none; */
+  font-family: "Titillium Web", sans-serif;
+  cursor: default;
+  font-size: 24px;
+  letter-spacing: 2px;
+  position: relative;
+  top: -20px;
 }
 
 .degrees {
@@ -161,7 +168,6 @@ h4 {
   display: block;
   position: relative;
   left: 10%;
-  padding-right: 40px;
 }
 
 .col-12 {

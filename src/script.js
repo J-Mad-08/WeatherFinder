@@ -27,9 +27,18 @@ properDate.innerHTML = formatDate(new Date());
 const apiKey = "5d58512296f20bed286330764deb9e8d";
 let units = "metric";
 
+//forecast
+function displayForecast(response) {
+  console.log(response.data);
+}
+
 function defaultCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&apiKey=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemp);
+  /*
+  apiUrl = `api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
+  */
 }
 
 // Weather info grabbed from API call

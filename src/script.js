@@ -25,7 +25,7 @@ let units = "metric";
 
 //Format hours from dt to std clock
 function formatHours(timestamp) {
-  console.log(new Date(timestamp));
+  //console.log(new Date(timestamp));
   let date = new Date(timestamp);
   let hour = date.getHours();
   let min = date.getMinutes();
@@ -49,10 +49,10 @@ function displayForecast(response) {
       forecast.dt * 1000
     )}</h3><img src="http://openweathermap.org/img/wn/${
       forecast.weather[0].icon
-    }@2x.png"><a href="" class="degrees-max alt="weather icon">${Math.round(
+    }@2x.png"><a href="" class="degrees-max alt="weather icon" id="current-temp">${Math.round(
       forecast.main.temp_max
     )}ºC</a>
-                      <a href="" class="degrees-min">${Math.round(
+                      <a href="" class="degrees-min" id="current-temp" color="d1d34c">${Math.round(
                         forecast.main.temp_min
                       )} ºC</a>`;
   }

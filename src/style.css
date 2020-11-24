@@ -95,7 +95,8 @@ legend {
 
 .degrees-min {
   text-decoration: none;
-  color: #fbff3c;
+  color: #fdff6b;
+  opacity: 70%;
 }
 
 .degrees-min:hover {

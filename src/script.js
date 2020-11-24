@@ -1,4 +1,4 @@
-//display the current date and time using JavaScript
+//Display the current date and time using JavaScript
 const daysOfWeek = [
   "Sunday",
   "Monday",
@@ -35,14 +35,14 @@ function formatHours(timestamp) {
   return `${hour}:${min}`;
 }
 
-//forecast
+//Forecast
 function displayForecast(response) {
   //console.log(response.data.list[0]);
   let forecastElement = document.querySelector(".temp");
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  //adding additional forecasts with for loop
+  //Adding additional forecasts with for loop
   for (let i = 1; i < 6; ++i) {
     forecast = response.data.list[i];
     forecastElement.innerHTML += `<h3>${formatHours(

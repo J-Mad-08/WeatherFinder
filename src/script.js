@@ -52,7 +52,7 @@ function displayForecast(response) {
     }@2x.png"><a href="" class="degrees-max alt="weather icon" id="current-temp">${Math.round(
       forecast.main.temp_max
     )}ºC</a>
-                      <a href="" class="degrees-min" id="current-temp" color="d1d34c">${Math.round(
+                      <a href="" class="degrees-min" id="current-temp">${Math.round(
                         forecast.main.temp_min
                       )} ºC</a>`;
   }
@@ -125,11 +125,11 @@ form.addEventListener("submit", search);
 
 let buttonClick = document.querySelector("#dark-button");
 buttonClick.addEventListener("click", search);
-
+/*
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", showTempCurLocation);
 
-// Get current Location
+Get current Location
 function showPosition(position) {
   let lat = position.coords.latitude;
 
@@ -137,13 +137,14 @@ function showPosition(position) {
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(`${apiUrl}&apiKey=${apiKey}`).then(showTemp);
+  //
 }
 
 function showTempCurLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
+*/
 let celsiusTemp = null;
 
 //   Conversion: Fahrenheit
